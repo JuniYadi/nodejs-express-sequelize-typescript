@@ -1,0 +1,42 @@
+{
+  "name": "nodejs-express-sequelize-typescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "watch": "webpack --watch",
+    "dev": "nodemon dist/bundle.js",
+    "lint": "eslint . --ext .ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JuniYadi/nodejs-express-sequelize-typescript.git"
+  },
+  "author": "Juni Yadi <juniyadi94@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JuniYadi/nodejs-express-sequelize-typescript/issues"
+  },
+  "homepage": "https://github.com/JuniYadi/nodejs-express-sequelize-typescript#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.10",
+    "@types/express": "^4.17.12",
+    "@types/node": "^15.12.1",
+    "@typescript-eslint/eslint-plugin": "^4.26.0",
+    "@typescript-eslint/parser": "^4.26.0",
+    "eslint": "^7.28.0",
+    "fork-ts-checker-webpack-plugin": "^6.2.10",
+    "nodemon": "^2.0.7",
+    "ts-loader": "^9.2.3",
+    "typescript": "^4.3.2",
+    "webpack": "^5.38.1",
+    "webpack-cli": "^4.7.0",
+    "webpack-node-externals": "^3.0.0"
+  }
+}
