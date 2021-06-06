@@ -52,7 +52,7 @@ module.exports = {
         }),
         // get all list import module, and export to package.json in dist folder
         new GeneratePackageJsonPlugin(basePackage, {
-            debug: true,
+            debug: mode !== 'production',
             useInstalledVersions: true,
         }),
     ],
