@@ -1,12 +1,9 @@
 import { Sequelize } from "sequelize-typescript";
 import * as dotenv from "dotenv";
-import path from "path";
+import { User } from "../app/models";
 
 // load .env configuration
 dotenv.config();
-
-// load all models in windows or linux
-const model = path.join(__dirname, "..", "app", "models");
 
 // sequelize database connection
 export const sequelize = new Sequelize({
@@ -22,21 +19,18 @@ export const sequelize = new Sequelize({
     max: process.env.DB_POOL_MAX ? parseInt(process.env.DB_POOL_MAX) : 1,
     idle: process.env.DB_POOL_IDLE ? parseInt(process.env.DB_POOL_IDLE) : 1000,
   },
-  models: [`${model}/*.ts`],
 });
 
-export const connection = async (force?: boolean): Promise<void> => {
+// add model to sequelize
+sequelize.addModels([User]);
+
+// init connection to sequelize
+export const connection = async () => {
   try {
     await sequelize.authenticate();
+    /* eslint-disable */
     console.log("Connection has been established successfully.");
-
-    /* Run This Function Automatically For Development Purpose */
-    const mode = process.env.NODE_ENV;
-    if (mode && mode === "development") {
-      await sequelize.sync({ force: force });
-      console.log("Success Sync Model Migration.");
-    }
   } catch (e) {
-    console.error(e);
+    return e;
   }
 };
