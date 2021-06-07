@@ -10,8 +10,8 @@
     "start": "node dist/bundle.js",
     "lint": "eslint . --ext .ts",
     "analyze": "cross-env NODE_ENV=production webpack --json > stats.json && webpack-bundle-analyzer stats.json",
-    "migrate": "cross-env NODE_ENV=development ts-node src/database/migrations/index.ts",
-    "migrate-force": "cross-env NODE_ENV=development DB_MIGRATE=true ts-node src/database/migrations/index.ts",
+    "sequelize-gen": "tsc --outDir ./sequelize -p src/database",
+    "sequelize-migrate": "sequelize-cli db:migrate",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
