@@ -7,7 +7,7 @@
     "watch": "cross-env NODE_ENV=development webpack --watch",
     "build": "cross-env NODE_ENV=production webpack",
     "dev": "nodemon dist/bundle.js",
-    "start": "node dist/bundle.js",
+    "start": "node bundle.js",
     "lint": "eslint . --ext .ts",
     "analyze": "cross-env NODE_ENV=production webpack --json > stats.json && webpack-bundle-analyzer stats.json",
     "sequelize-gen": "tsc --outDir ./sequelize -p src/database",
