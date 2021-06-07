@@ -16,7 +16,6 @@ import * as uuid from "uuid";
 export enum userRole {
   admin = "admin",
   user = "user",
-  reseller = "reseller",
 }
 
 @Table({
@@ -27,7 +26,7 @@ export class User extends Model {
   @Default(uuid.v4)
   @IsUUID(4)
   @Column(DataType.UUID)
-  uuid!: string;
+  id!: string;
 
   @AllowNull(false)
   @NotEmpty

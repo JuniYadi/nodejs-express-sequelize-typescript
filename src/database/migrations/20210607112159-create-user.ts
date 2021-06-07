@@ -1,21 +1,34 @@
 import { QueryInterface, DataTypes } from "sequelize";
 
-export const up = async (queryInterface: QueryInterface): Promise<void> => {
+export const up = async (queryInterface: QueryInterface) => {
   await queryInterface.createTable("Users", {
     id: {
       allowNull: false,
-      autoIncrement: true,
       primaryKey: true,
-      type: DataTypes.INTEGER,
+      type: DataTypes.UUID,
+      unique: true,
     },
-    firstName: {
+    name: {
       type: DataTypes.STRING,
-    },
-    lastName: {
-      type: DataTypes.STRING,
+      allowNull: false,
     },
     email: {
       type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+    },
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    role: {
+      type: DataTypes.ENUM("admin", "user"),
+      defaultValue: "user",
+    },
+    apiToken: {
+      type: DataTypes.TEXT,
+      allowNull: true,
+      unique: true,
     },
     createdAt: {
       allowNull: false,
@@ -28,6 +41,6 @@ export const up = async (queryInterface: QueryInterface): Promise<void> => {
   });
 };
 
-export const down = async (queryInterface: QueryInterface): Promise<void> => {
+export const down = async (queryInterface: QueryInterface) => {
   await queryInterface.dropTable("Users");
 };
