@@ -9,7 +9,7 @@
   "include": [
     "config.ts",
     "migrations/**/*",
-    "../app/models/**/*",
-    "seeders/**/*"
+    "seeders/**/*",
+    "../app/models/**/*"
   ],
 }
