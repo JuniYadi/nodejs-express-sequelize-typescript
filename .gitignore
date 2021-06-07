@@ -111,8 +111,8 @@ stats.json
 
 # Ignore Sequelize Compiler to Commit
 # Because All File For Code in `src` Directory
-config
-migrations
-seeders
-models
-sequelize
+/config/
+/migrations/
+/seeders/
+/models/
+/sequelize/
