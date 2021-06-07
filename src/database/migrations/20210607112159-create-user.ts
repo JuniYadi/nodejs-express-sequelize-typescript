@@ -1,9 +1,6 @@
-import { QueryInterface, DataTypes, Sequelize } from "sequelize";
+import { QueryInterface, DataTypes } from "sequelize";
 
-export const up = async (
-  queryInterface: QueryInterface,
-  Sequelize: Sequelize
-) => {
+export const up = async (queryInterface: QueryInterface): Promise<void> => {
   await queryInterface.createTable("Users", {
     id: {
       allowNull: false,
@@ -31,9 +28,6 @@ export const up = async (
   });
 };
 
-export const down = async (
-  queryInterface: QueryInterface,
-  Sequelize: Sequelize
-) => {
+export const down = async (queryInterface: QueryInterface): Promise<void> => {
   await queryInterface.dropTable("Users");
 };
