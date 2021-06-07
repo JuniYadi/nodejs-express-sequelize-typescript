@@ -1,0 +1,15 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "target": "ES2017",
+    "sourceMap": false,
+    "strict": false,
+    "noImplicitAny": false,
+  },
+  "include": [
+    "config.ts",
+    "migrations/**/*",
+    "../app/models/**/*",
+    "seeders/**/*"
+  ],
+}
