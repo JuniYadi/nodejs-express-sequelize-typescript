@@ -13,6 +13,15 @@ import {
 } from "sequelize-typescript";
 import * as uuid from "uuid";
 
+export interface IUser {
+  id?: string;
+  name?: string;
+  email?: string;
+  password?: string;
+  role?: string;
+  apiToken?: string;
+}
+
 export enum userRole {
   admin = "admin",
   user = "user",
@@ -54,4 +63,14 @@ export class User extends Model {
   @AllowNull(true)
   @Column(DataType.TEXT)
   apiToken?: string;
+
+  toJSON() {
+    const data: IUser = super.toJSON();
+
+    // Hide Private Data
+    delete data.password;
+
+    // return new data
+    return data;
+  }
 }
